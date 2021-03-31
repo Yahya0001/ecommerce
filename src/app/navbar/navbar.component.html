@@ -1,0 +1,181 @@
+<nav>
+    <div class="firstnav">
+        <div>
+        <h1><a routerLink=""><i class="fas fa-bars"></i>    E-Commerce</a></h1>
+        <div class="searchbar">
+            <select id="search_category" name="search_category" class="form-control float-xs-left">
+                <option value="all" class="listtitle">Toutes nos catégories</option>
+                <option value="100" class="listtitle">Informatique</option>
+                <option value="110" class="listtext">Ordinateur Portable</option>
+                <option value="120" class="listtext">Ordinateur de Bureau</option>
+                <option value="130" class="listtext">Accessoires et Périphériques</option>
+                <option value="200" class="listtitle">Téléphonie &amp; Tablette</option>
+                <option value="210" class="listtext">Téléphone Portable</option>
+                <option value="220" class="listtext">Smartphone</option>
+                <option value="230" class="listtext">Téléphone Fixe</option>
+                <option value="240" class="listtext">Tablette tactile</option>
+                <option value="250" class="listtext">Accessoires Téléphones</option>
+                <option value="300" class="listtitle">Stockage</option>
+                <option value="310" class="listtext">Disques Internes</option>
+                <option value="320" class="listtext">Disque Dur externe</option>
+                <option value="330" class="listtext">Clé USB</option>
+                <option value="340" class="listtext">Carte mémoire</option>
+                <option value="350" class="listtext">Serveur de stockage</option>
+                <option value="360" class="listtext">CD et DVD Vierge</option>
+                <option value="370" class="listtext">Accessoires pour Stockage</option>
+                <option value="400" class="listtitle">TV-Son-Photos</option>
+                <option value="410" class="listtext">Vidéoprojecteurs</option>
+                <option value="420" class="listtext">Téléviseurs</option>
+                <option value="430" class="listtext">SON</option>
+                <option value="440" class="listtext">Appareils Photos</option>
+                <option value="450" class="listtext">Consoles &amp; Jeux</option>
+                <option value="460" class="listtext">Récepteur / Abonnement</option>
+                <option value="470" class="listtext">Piles et Chargeurs</option>
+                <option value="480" class="listtext">Instrument de musique</option>
+                <option value="500" class="listtitle">Electroménager</option>
+                <option value="510" class="listtext">Climatisation</option>
+                <option value="520" class="listtext">Chauffage</option>
+                <option value="530" class="listtext">Electro Cuisine</option>
+                <option value="540" class="listtext">Electro Lavage</option>
+                <option value="550" class="listtext">Ventilateurs</option>
+                <option value="600" class="listtitle">Véhicules</option>
+                <option value="610" class="listtext">Voitures</option>
+                <option value="620" class="listtext">Motos</option>
+                <option value="630" class="listtext">Bateaux</option>
+                <option value="640" class="listtext">Engins Agricole</option>
+                <option value="650" class="listtext">Camions</option>
+                <option value="700" class="listtitle">Habillement et Bien Etre</option>
+                <option value="710" class="listtext">Vêtements</option>
+                <option value="720" class="listtext">Chaussures</option>
+                <option value="730" class="listtext">Montres et Bijoux</option>
+                <option value="740" class="listtext">Sacs et Accessoires</option>
+                <option value="750" class="listtext">Equipements pour enfant et bébé</option>
+                <option value="760" class="listtext">Produits de beauté</option>
+                <option value="800" class="listtitle">Impression</option>
+                <option value="810" class="listtext">Imprimantes</option>
+                <option value="820" class="listtext">Photocopieurs</option>
+                <option value="830" class="listtext">Consommables </option>
+                <option value="840" class="listtext">Fax</option>
+                <option value="850" class="listtext">Scanners</option>
+            </select>
+            <form action="" class="navbar-form">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="search" name="search" id="" placeholder="Search Anything Here..." class="form-control search">
+                        <button class="input-group-addon"><span class="glyphicon glyphicon-search"></span></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="logo-panier" *ngFor="let use of user">
+            <div class="profile">
+                <i class="far fa-user" [class.changestyle]="!Connected">
+                    <ul [hidden]="!Connected">
+                        <li><button routerLink="se_connecter">LOG IN</button></li>
+                        <li><button routerLink="nvcompte">Register</button></li>
+                    </ul>
+                    <ul [hidden]="Connected">
+                        <li><button (click)="LogIn()">LOG OUT</button></li>
+                    </ul>
+                </i>
+                <p [hidden]="Connected">Hello, {{use.prenom}}</p>
+            </div>
+            <div  matBadge="{{panier}}" matBadgePosition="below before" matBadgeSize="medium" [matBadgeHidden]="NbrPanierItems">
+                <a routerLink="panier"><img style="width: 50px;" src="../../assets/images/chart_logo.png"></a>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="secnav">
+        <div>
+            <form action="" class="navbar-form">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="search" name="search" id="" placeholder="Search Anything Here..." class="form-control search">
+                        <button class="input-group-addon"><span class="glyphicon glyphicon-search"></span></button>
+                    </div>
+                </div>
+            </form>
+            <div class="logo-panier2" *ngFor="let use of user">
+                <div class="profile2">
+                    <i class="far fa-user" [class.changestyle]="!Connected">
+                        <ul [hidden]="!Connected">
+                            <li><button (click)="LogIn()">LOG IN</button></li>
+                            <li><button >Register</button></li>
+                        </ul>
+                        <ul [hidden]="Connected">
+                            <li><button (click)="LogIn()">LOG OUT</button></li>
+                        </ul>
+                    </i>
+                    <p [hidden]="Connected">Hello, {{use.prenom}}</p>
+                </div>
+            </div>
+            <ul>
+                <li>Informatique
+                    <ul>
+                        <li><a href="#">Ordinateur Portable</a></li>
+                        <li><a href="#">Ordinateur de Bureau</a></li>
+                        <li><a href="#">Accessoires et Périphériques</a></li>
+                    </ul>
+                </li>
+                <li>Téléphonie &amp; Tablette
+                    <ul>
+                        <li><a href="#">Téléphone Portable</a></li>
+                        <li><a href="#">Smartphone</a></li>
+                        <li><a href="#">Téléphone Fixe</a></li>
+                        <li><a href="#">Tablette tactile</a></li>
+                        <li><a href="#">Accessoires Téléphones</a></li>
+                    </ul>
+                </li>
+                <li>TV-Son-Photos
+                    <ul>
+                        <li><a href="#">Vidéoprojecteurs</a></li>
+                        <li><a href="#">Téléviseurs</a></li>
+                        <li><a href="#">SON</a></li>
+                        <li><a href="#">Appareils Photos</a></li>
+                        <li><a href="#">Consoles &amp; Jeux</a></li>
+                        <li><a href="#">Récepteur / Abonnement</a></li>
+                        <li><a href="#">Piles et Chargeurs</a></li>
+                        <li><a href="#">Instrument de musique</a></li>
+                    </ul>
+                </li>
+                <li>Electroménager
+                    <ul>
+                        <li><a href="#">Climatisation</a></li>
+                        <li><a href="#">Chauffage</a></li>
+                        <li><a href="#">Electro Cuisine</a></li>
+                        <li><a href="#">Electro Lavage</a></li>
+                        <li><a href="#">Ventilateurs</a></li>
+                    </ul>
+                </li>
+                <li>Véhicules
+                    <ul>
+                        <li><a href="#">Voitures</a></li>
+                        <li><a href="#">Motos</a></li>
+                        <li><a href="#">Bateaux</a></li>
+                        <li><a href="#">Engins Agricole</a></li>
+                        <li><a href="#">Camions</a></li>
+                    </ul>
+                </li>
+                <li>Habillement et Bien Etre
+                    <ul>
+                        <li><a href="#">Vêtements</a></li>
+                        <li><a href="#">Chaussures</a></li>
+                        <li><a href="#">Montres et Bijoux</a></li>
+                        <li><a href="#">Sacs et Accessoires</a></li>
+                        <li><a href="#">Equipements pour enfant et bébé</a></li>
+                        <li><a href="#">Produits de beauté</a></li>
+                    </ul>
+                </li>
+                <li>Impression
+                    <ul>
+                        <li><a href="#">Photocopieurs</a></li>
+                        <li><a href="#">Consommables</a></li>
+                        <li><a href="#">Fax</a></li>
+                        <li><a href="#">Scanners</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

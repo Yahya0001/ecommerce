@@ -1,0 +1,114 @@
+<div class="container">
+  <div class="card ShoppingCard">
+    <div class="card-header title">
+      <h1 class="card-title1 text-center"><b>Shopping Cart</b></h1>
+    </div>
+
+    <div class="row card-body panier">
+      <div class="col-xs-12 col-lg-8 col-md-8 articles">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title text-center"><b>Cart</b></h2>
+          </div>
+          <div class="card-body" *ngFor="let produit of HomeProduit">
+            <div class="row article">
+              <div class="col-xl-3 col-lg-4 col-sm-12 col-md-5">
+                <img
+                  src="{{ produit.image }}"
+                  alt="headset"
+                  width="100px"
+                  height="100px"
+                />
+              </div>
+              <div class="col-xl-9 col-lg-8 col-sm-12 col-md-7">
+                <div class="row">
+                  <div
+                    class="col-xl-6 col-xs-6 col-lg-6 col-sm-6 col-md-6 details"
+                  >
+                    <h2>{{ produit.title }}</h2>
+                    <h5>color</h5>
+                    <h5>size</h5>
+                  </div>
+                  <div class="col-xl-6 col-xs-6 col-lg-6 col-sm-6 col-md-6">
+                    <div class="row addremove">
+                      <div
+                        class="col-xl-12 col-xs-6 col-lg-6 col-sm-6 col-md-12 btn1 def-number-input number-input safari_only mb-0 w-100"
+                      >
+                        <button
+                          type="button"
+                          class="plus btn"
+                          onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                        >
+                          +
+                        </button>
+                        <input
+                          class="quantité"
+                          min="0"
+                          value="1"
+                          type="number"
+                        />
+
+                        <button
+                          type="button"
+                          class="minus btn"
+                          onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                        >
+                          -
+                        </button>
+                      </div>
+                      <div
+                        class="col-xl-12 col-xs-6 col-lg-12 col-sm-6 col-md-12"
+                      >
+                        <div class="row">
+                          <div
+                            class="col-xl-6 col-xs-6 col-lg-6 col-sm-6 col-md-6 price"
+                          >
+                            <span class="material-icons"> attach_money </span>
+                            <h3>
+                              <b>{{ produit.price }}</b>
+                            </h3>
+                          </div>
+                          <div
+                            class="col-xl-6 col-xs-6 col-lg-6 col-sm-6 col-md-6 delete"
+                          >
+                            <button
+                              type="button"
+                              class="delete"
+                              (click)="DeleteButton(produit.id)"
+                            >
+                              <span class="material-icons"> delete </span>
+                              <h5>Remove item</h5>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr class="mb-4" />
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-lg-4 col-md-4 amount">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title text-center"><b>The total amount</b></h2>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12">Temporary amount</div>
+              <div class="col-12">Shipping</div>
+              <hr class="mb-4" />
+              <div class="col-12">the total amount</div>
+              <div class="col-12">
+                <button class="checkout">Go to checkout</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

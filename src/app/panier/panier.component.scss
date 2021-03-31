@@ -1,0 +1,133 @@
+.ShoppingCard {
+  width: 100%;
+  justify-content: center;
+  padding-top: 8px;
+  margin: 0.8em auto;
+  text-align: center;
+  background-color: #fbfbfb;
+  padding: 12px;
+}
+.title {
+  text-align: center;
+  font-size: 32px;
+  color: #963441;
+  padding: 20px;
+  background-color: #fbfbfb;
+}
+.panier {
+  display: inline-flex;
+  justify-content: space-around;
+}
+.articles {
+  padding: 6px;
+}
+.amount {
+  padding: 6px;
+}
+.article {
+  border-radius: 4px;
+  border: 2px #cccccc;
+}
+.details {
+  display: inline-flex;
+  // justify-content: space-around;
+}
+.product {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /*background-color: rgb(248, 244, 244);*/
+  padding-top: 0;
+  padding-bottom: 0;
+  font-size: 30px;
+}
+.card {
+  -webkit-box-shadow: -4px 3px 29px -4px rgba(133, 133, 133, 1);
+  -moz-box-shadow: -4px 3px 29px -4px rgba(133, 133, 133, 1);
+  box-shadow: -4px 3px 29px -4px rgba(133, 133, 133, 1);
+  margin: 30px;
+}
+.card-title1 {
+  margin: 30px;
+}
+.details {
+  display: block;
+}
+.number-input.number-input {
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+.skin-light .number-input.number-input {
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+.btn1 {
+  padding: 0;
+}
+.mb-0,
+.my-0 {
+  margin-bottom: 0 !important;
+}
+.quantité {
+  width: 25%;
+  border: none;
+  text-align: center;
+  height: 100%;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+.btn {
+  padding: 0;
+  width: 10%;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: none;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0;
+  position: relative;
+}
+.addremove {
+  display: inline-block;
+  justify-content: space-around;
+}
+.price {
+  margin: 8px;
+}
+.delete {
+  width: 80%;
+  padding: 8px;
+  margin: 8%;
+  border-radius: 12px;
+  border: 2px #cccccc;
+  border-color: #eeeeee;
+}
+.checkout {
+  justify-content: center;
+  background-color: #9fc8db;
+  width: 50%;
+  padding: 12px;
+  margin: 8%;
+  border-radius: 6px;
+  border: 2px #cccccc;
+  border-color: #eeeeee;
+}
+.price {
+  display: inline-flex;
+  justify-content: space-around;
+  padding: 8px;
+  margin: 8%;
+}

@@ -1,0 +1,313 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+nav{
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    .firstnav{
+        background: linear-gradient(357deg, #4507a2 0%, black 75%);
+        div{
+            display: flex;
+            margin : 0 auto;
+            max-width: 1500px;
+            justify-content: space-between;
+            h1{
+                margin: 12px;
+                a{
+                    color: white;
+                    text-decoration: none;
+                }
+            }
+            .searchbar{
+                select{
+                    width: 200px;
+                    border-radius: 12px 0 0 12px;
+                    border: none;
+                    margin: 8px -15px 0 0;
+                    height: 35px;
+                    .listtitle{
+                        background-color:#646363 ;
+                        color : white ;
+                        font-size: 25px;
+                    }
+                    .listtext{
+                        font-size: 20px;
+                    }
+                    .listtext:nth-child(odd){
+                        background:#ECF0F1;
+                    }
+                }
+                .search{
+                    width: 320px;
+                    height: 35px;
+                    border-radius: 0 ;
+                    border: none;
+                    border-right: 1px solid #a6a6a6;
+                }
+                button{
+                    border-radius: 0 12px 12px 0;
+                    width: 85px;
+                    height: 35px;
+                    border: black;
+                    background: linear-gradient(116deg, #c6c5c6 0%, #7f7da7 75%);
+                }
+            }
+            .logo-panier{
+                display: flex;
+                height: 50px;
+                justify-content: space-between;
+                margin: 6px -40px;
+                .profile{
+                    p{
+                        color: azure;
+                        font-size: 14px;
+                        margin-top: 12px;
+                    }
+                    .far{
+                        color: white;
+                        margin:3px;
+                        font-size : 40px; 
+                        ul{
+                            display: none;
+                        }
+                    }
+                    .changestyle{
+                        font-size : 30px ;
+                        color : red;
+                        margin-top: 10px;
+                    }
+                    .far:hover{
+                        ul{
+                            display: block;
+                            box-shadow: 0px 0px 13px 3px #797575;
+                            background-color: white;
+                            width: 150px;
+                            font-size: 14px;
+                            list-style: none;
+                            margin: 0;
+                            padding: 0;
+                            position: absolute;
+                            top: 50px;
+                            right: 80px;
+                            z-index: 50;
+                            li{
+                            //margin: 0;
+                                padding: 17px;
+                                width: 250px;
+                                button{
+                                    border : none;
+                                    background-color: transparent;
+                                    color: black;
+                                }
+                            }
+                        }
+                    }
+                    div{
+                        height: 35px;
+                    }
+                }
+            }
+        }
+    }
+    .secnav{
+        height: 50px;
+        background-color: white;
+        border-bottom: 1px solid black;
+        div{
+            max-width: 1450px;
+            margin: 0 auto;
+            padding-right: 60px;
+            justify-content: space-between;
+            form , .logo-panier2{
+                display: none ;
+            }
+            ul{
+                display: flex;
+                justify-content: space-between;
+                font-size: 16px;
+                padding-top: 11px;
+                font-size: 17px;
+                list-style: none;
+                color: #002065;
+                li ul{
+                    display: none;
+                }
+                li:hover{
+                    ul{
+                        display: block;
+                        box-shadow: 0px 0px 13px 3px #797575;
+                        background-color: white;
+                        width: 250px;
+                        font-size: 14px;
+                        list-style: none;
+                        margin: 0;
+                        padding: 0;
+                        position: absolute;
+                        top: 95px;
+                        z-index: 50;
+                        li{
+                            //margin: 0;
+                            padding: 17px;
+                            width: 250px;
+                            a{
+                                color: black;
+                                text-decoration: none;
+                                font-size: 16px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (min-width: 770px){
+    nav .firstnav {
+        .logo-panier{
+            width:250px ;
+        } .profile {
+            display: flex;
+        }
+    }
+}
+@media only screen and (max-width: 770px)and (min-width: 320px){
+    nav {
+        width: 100%;
+        .firstnav {
+            width: 100%;
+            .searchbar{
+                display: none;
+            }
+            .logo-panier {
+                width: 200px;
+                .profile{
+                    display: none;
+                    margin: 1px -16px 1px 46px;
+                    padding: 6px;
+                }
+            }
+        }
+        .secnav{
+            width: 100%;
+            div{
+                display: flex;
+                margin : 0;
+                padding-right: 10px;
+                form{
+                    display: flex;
+                    padding-top: 0;
+                    .form-group .input-group{
+                        input{
+                            height:40px;
+                            width: 50%;
+                            border-radius: 12px 0 0 12px;
+                        }
+                        button{
+                            width: 20%;
+                            height: 40px;
+                            border-radius: 0 12px 12px 0;
+                        }
+                    }
+                }
+                .logo-panier2{
+                    display: flex;
+                    .profile2{
+                        display: flex;
+                        p{
+                            color: #27045d;
+                            font-size: 12px;
+                            margin-top: 12px;
+                            font-family: bold ;
+                        }
+                        .far{
+                            color: white;
+                            margin:3px;
+                            font-size : 40px; 
+                            ul{
+                                display: none;
+                            }
+                        }
+                        .changestyle{
+                            font-size : 30px ;
+                            color : rgb(0, 0, 0);
+                            margin-top: 10px;
+                        }
+                        .far:hover{
+                            ul{
+                                display: block;
+                                box-shadow: 0px 0px 13px 3px #797575;
+                                background-color: white;
+                                width: 150px;
+                                font-size: 14px;
+                                list-style: none;
+                                margin: 0;
+                                padding: 0;
+                                position: absolute;
+                                top: 50px;
+                                right: 80px;
+                                z-index: 50;
+                                li{
+                                    padding: 17px;
+                                    width: 250px;
+                                    button{
+                                        border : none;
+                                        background-color: transparent;
+                                        color: black;
+                                    }
+                                }
+                            }
+                        }
+                        div{
+                            height: 35px;
+                        }
+                    }
+                }
+                ul{
+                    display: none;
+                }
+            }
+        }
+    }
+}/*
+@media only screen and (max-width: 770px)and (min-width: 425px){
+    nav {
+        width: 100%;
+        .firstnav {
+            width: 100%;
+            .searchbar{
+                display: none;
+            }
+            .logo-panier {
+                width: 200px;
+                .profile{
+                    display: none;
+                    margin: 1px -16px 1px 46px;
+                    padding: 6px;
+                }
+            }
+        }
+        .secnav{
+            width: 100%;
+            div{
+                form{
+                    display: flex;
+                    padding-top: 0;
+                    .form-group .input-group{
+                        input{
+                            height:40px;
+                            width: 200px;
+                            border-radius: 12px 0 0 12px;
+                        }
+                        button{
+                            width: 68px;
+                            height: 40px;
+                            border-radius: 0 12px 12px 0;
+                        }
+                    }
+                }
+                ul{
+                    display: none;
+                }
+            }
+        }
+    }
+}*/

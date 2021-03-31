@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xl-12 col-xs-3 col-lg-6 col-sm-6 col-md-12 card">
+      <div
+        class="card-header"
+        style="background: linear-gradient(14deg, #4507a2 0%, black 75%)"
+      >
+        <h5 class="card-title text-center" class="login1" style="color: white">
+          Se connecter
+        </h5>
+        <small id="emailHelp" class="form-text text-muted"></small>
+        <img [src]="myimage" alt="Avatar" class="avatar1" />
+      </div>
+      <div class="card-body">
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <div class="row">
+            <div class="col-xl-12">
+              <div class="form-group">
+                <input
+                  type="text"
+                  formControlName="mail"
+                  class="form-control input"
+                  placeholder="Email *"
+                />
+              </div>
+              <div
+                *ngIf="mail.invalid && (mail.dirty || mail.touched)"
+                class="form-text text-muted"
+              >
+                <div *ngIf="mail.errors?.required" class="erreur">
+                  Email nécessaire !
+                </div>
+                <div *ngIf="mail.errors?.email" class="erreur">
+                  Email incorrect !
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <input
+                  type="password"
+                  formControlName="password"
+                  class="form-control input"
+                  placeholder="Password *"
+                />
+              </div>
+
+              <div
+                *ngIf="password.invalid && (password.dirty || password.touched)"
+                class="form-text text-muted"
+              >
+                <div *ngIf="password.errors?.required" class="erreur">
+                  Mot de passe nécessaire!
+                </div>
+                <div *ngIf="password.errors?.minlength" class="erreur">
+                  Le mot de passe doit avoir 8 lettres au minimuim !
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <button
+                type="submit"
+                [disabled]="!loginForm.valid"
+                class="btn btn-primary btn-round login"
+              >
+                Se connecter
+              </button>
+              <button
+                routerLink="/nvcompte"
+                class="btn btn-primary btn-round login"
+              >
+                Créer un compte
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

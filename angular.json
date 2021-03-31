@@ -31,6 +31,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/scss/bootstrap.scss",
               "src/styles.scss"
             ],
             "scripts": []
@@ -127,5 +128,8 @@
       }
     }
   },
-  "defaultProject": "ecommerce"
+  "defaultProject": "ecommerce",
+  "cli": {
+    "analytics": "9b377a2b-3edf-4ed9-a656-4da0565c010d"
+  }
 }

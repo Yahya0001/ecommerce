@@ -1,0 +1,23 @@
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+
+<ul class="listing">
+  <li class="product" *ngFor="let produit of Hproduit">
+    <a class="img-wrapper" routerLink='produit'>
+      <img src="{{produit.image}}" alt="headset" width="
+      300px" width="200px" />
+    </a>
+    <div *ngIf="produit.onsale === 'No'" class="note no-stock">Out of stock</div>
+    <div *ngIf="produit.onsale === 'Yes'" class="note on-sale">On sale</div>
+    <div class="info">
+      <div class="title">{{produit.title}}</div>
+      <div *ngIf="produit.promo === 'No'" class="price">${{produit.price}}</div>
+      <div *ngIf="produit.promo === 'Yes'" class="price sale">${{produit.newprice}}</div>
+      <div *ngIf="produit.promo === 'Yes'" class="price old">${{produit.price}}</div>
+    </div>
+    
+    <div class="actions-wrapper">
+      <a href="#" class="add-btn fav">fav</a>
+      <a href="#" class="add-btn cart">Cart</a>
+    </div>
+  </li>
+</ul>

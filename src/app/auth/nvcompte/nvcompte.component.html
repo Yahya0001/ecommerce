@@ -1,0 +1,194 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xl-12 col-xs-3 col-lg-6 col-sm-6 col-md-12 Card">
+      <div
+        class="card-header"
+        style="background: linear-gradient(14deg, #4507a2 0%, black 75%)"
+      >
+        <h5 class="card-title text-center" class="login1">Créer un compte</h5>
+        <small id="emailHelp" class="form-text text-muted"></small>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="registerForm" (ngSubmit)="register()">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <input
+                  type="text"
+                  formControlName="nom"
+                  class="form-control input"
+                  placeholder="Nom"
+                />
+                <div
+                  *ngIf="nom.invalid && (nom.dirty || nom.touched)"
+                  class="form-text text-muted"
+                >
+                  <div *ngIf="nom.errors?.required" class="erreur">
+                    Nom nécessaire!
+                  </div>
+                  <div *ngIf="nom.errors?.minlength" class="erreur">
+                    Le nom doit avoir 5 lettres au minimuim!
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <input
+                  type="text"
+                  formControlName="prenom"
+                  class="form-control input"
+                  placeholder="Prenom"
+                />
+              </div>
+              <div
+                *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)"
+                class="form-text text-muted"
+              >
+                <div *ngIf="prenom.errors?.required">Prenom nécessaire</div>
+                <div *ngIf="prenom.errors?.minlength">
+                  Le prenom doit avoir 5 lettres au minimuim
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <input
+                  type="text"
+                  formControlName="adresse"
+                  class="form-control input"
+                  placeholder="Adresse"
+                />
+              </div>
+
+              <div
+                *ngIf="adresse.invalid && (adresse.dirty || adresse.touched)"
+                class="form-text text-muted"
+              >
+                <div *ngIf="adresse.errors?.required">Adresse nécessaire</div>
+                <div *ngIf="adresse.errors?.minlength">
+                  L'adresse doit avoir 5 lettres au minimuim
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <input
+                  type="text"
+                  formControlName="ville"
+                  class="form-control input"
+                  placeholder="Ville"
+                />
+              </div>
+
+              <div
+                *ngIf="ville.invalid && (ville.dirty || ville.touched)"
+                class="form-text text-muted"
+              >
+                <div *ngIf="ville.errors?.required">Ville nécessaire</div>
+                <div *ngIf="ville.errors?.minlength">
+                  La ville doit avoir 5 lettres au minimuim
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <input
+                  type="text"
+                  formControlName="code_postal"
+                  class="form-control input"
+                  placeholder="Code postal"
+                />
+              </div>
+              <div
+                *ngIf="
+                  code_postal.invalid &&
+                  (code_postal.dirty || code_postal.touched)
+                "
+                class="form-text text-muted"
+              >
+                <div *ngIf="code_postal.errors?.required">
+                  Code postal nécessaire
+                </div>
+                <div *ngIf="code_postal.errors?.minlength">
+                  Code doit avoir 4 lettres exactement
+                </div>
+                <div *ngIf="code_postal.errors?.maxlength">
+                  Code doit avoir 4 lettres exactement
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <input
+                  type="text"
+                  formControlName="mail"
+                  class="form-control input"
+                  placeholder="Email"
+                />
+              </div>
+
+              <div
+                *ngIf="mail.invalid && (mail.dirty || mail.touched)"
+                class="form-text text-muted"
+              >
+                <div *ngIf="mail.errors?.required">Email nécessaire</div>
+                <div *ngIf="mail.errors?.email">Email incorrect</div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <!-- <label>Mot de passe</label> -->
+                <input
+                  type="password"
+                  formControlName="password"
+                  class="form-control input"
+                  placeholder="Mot de passe"
+                />
+                <div
+                  *ngIf="
+                    password.invalid && (password.dirty || password.touched)
+                  "
+                  class="form-text text-muted"
+                >
+                  <div *ngIf="password.errors?.required">
+                    Mot de passe nécessaire
+                  </div>
+                  <div *ngIf="password.errors?.minlength">
+                    Le mot de passe doit avoir 8 lettres au minimuim
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="update ml-auto mr-auto">
+              <button
+                type="submit"
+                [disabled]="!registerForm.valid"
+                class="btn btn-primary btn-round login"
+                style="margin: 2%; background-color: #3a0687"
+              >
+                Créer votre compte
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
