@@ -12,6 +12,7 @@ import {MatBadgeModule} from '@angular/material/badge';
 import { SlideComponent } from './slide/slide.component';
 import { CardsComponent } from './cards/cards.component';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 import { HomeComponent } from './home/home.component';
 
 import { ProduitPageComponent } from './produit-page/produit-page.component';
@@ -37,6 +38,22 @@ import { NvcompteComponent } from './auth/nvcompte/nvcompte.component';
 import { AuthInterceptorInterceptor } from './auth/auth-interceptor.interceptor';
 import { PanierComponent } from './panier/panier.component';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { CategoryComponent } from './category/category.component';
+import {MatSelectModule} from '@angular/material/select';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { CommandeHistoriqueComponent } from './commande-historique/commande-historique.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
+import { ProfileComponent } from './profile/profile.component';
+
+import {MatDialogModule , MatDialogRef} from '@angular/material/dialog'; // yy
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,14 +66,27 @@ import { PanierComponent } from './panier/panier.component';
     CardsComponent,
     ProduitPageComponent,
     HomeComponent,
-    PanierComponent
+    PanierComponent,
+    CategoryComponent,
+    CommandeHistoriqueComponent,
+    UpdateProfileComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
+    MatDialogModule, // yy
+    FormsModule,
+    NgxSliderModule,
+    MatCheckboxModule,
+    Ng2SearchPipeModule,
+    NgxPaginationModule,
+    Ng2OrderModule,
+    MatSelectModule,
     HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     MatTabsModule,
+    CarouselModule,
     MatCarouselModule.forRoot(),
     MatBadgeModule,
     MatIconModule,
@@ -68,9 +98,13 @@ import { PanierComponent } from './panier/panier.component';
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorInterceptor, multi: true }],
+  providers: [{ 
+    provide:[HTTP_INTERCEPTORS, MatDialogRef], 
+    useClass: AuthInterceptorInterceptor, 
+    multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

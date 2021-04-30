@@ -1,70 +1,100 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 <app-slide></app-slide>
-
-<div class="listing">
-  <div class="product" *ngFor="let produit of Hproduit">
-    <a class="img-wrapper" routerLink='produit'>
-      <img src="{{produit.image}}" alt="headset" width="
-      300px" width="200px" />
-    </a>
-    <div *ngIf="produit.onsale === 'No'" class="note no-stock">Out of stock</div>
-    <div *ngIf="produit.onsale === 'Yes'" class="note on-sale">On sale</div>
-    <div class="info">
-      <div class="title">{{produit.title}}</div>
-      <div *ngIf="produit.promo === 'No'" class="price">${{produit.price}}</div>
-      <div *ngIf="produit.promo === 'Yes'" class="price sale">${{produit.newprice}}</div>
-      <div *ngIf="produit.promo === 'Yes'" class="price old">${{produit.price}}</div>
+<div class="homecontainer">
+  <div class="sidenav">
+    <div class="sidebox">
+      <div class="sideboxtitle">
+        <h2>New products</h2>
+        <h3>High quality products every day</h3>
+      </div>
+      <ngb-carousel [showNavigationIndicators]="false" [interval]="1700" >
+        <ng-template ngbSlide *ngFor="let produit of ourpromos">
+          <div class="newproduct">
+            <div class="newproductimg">
+                <img src="{{produit.image}}" alt="newproduct" />
+            </div>
+            <div class="newproducttag">New</div>
+            <h4>{{produit.title}}</h4>
+            <div class="btnbox">
+              <button type="button" class="btn btn-primary btn-md mr-1 mb-2 waves-effect waves-light"><i class="fas fa-shopping-cart pr-2"></i>Add to cart</button>
+              <button type="button" class="btn btn-light btn-md mr-1 mb-2 waves-effect waves-light"><i class="fas fa-heart"></i>Favorie</button>
+            </div>
+          </div>
+        </ng-template>
+      </ngb-carousel>
     </div>
-    
-    <div class="actions-wrapper">
-      <a href="#" class="add-btn fav">fav</a>
-      <a href="#" class="add-btn cart">Cart</a>
+    <div class="sidebox">
+      <img style="width: 100%;border-radius:0.8rem;" src="../../assets/images/homepub.png">
+    </div>
+  </div>
+  <div class="listing">
+    <div class="product" *ngFor="let produit of Hproduit">
+      <a class="img-wrapper" routerLink='produit'>
+        <img src="{{produit.image}}" alt="headset" width="
+        300px" width="200px" />
+      </a>
+      <div *ngIf="produit.onsale === 'No'" class="note no-stock">Out of stock</div>
+      <div *ngIf="produit.onsale === 'Yes'" class="note on-sale">On sale</div>
+      <div class="info">
+        <div class="title">{{produit.title}}</div>
+        <div *ngIf="produit.promo === 'No'" class="price">${{produit.price}}</div>
+        <div *ngIf="produit.promo === 'Yes'" class="price sale">${{produit.newprice}}</div>
+        <div *ngIf="produit.promo === 'Yes'" class="price old">${{produit.price}}</div>
+      </div>
+      
+      <div class="actions-wrapper">
+        <a href="#" class="add-btn fav">fav</a>
+        <a href="#" class="add-btn cart">Cart</a>
+      </div>
     </div>
   </div>
 </div>
-<h2>Best selling</h2>
-<div class="paginating">
-    <div class="product" *ngFor="let produit of bestsell">
-      <a class="img-wrapper" routerLink='produit'>
-        <img src="{{produit.image}}" alt="headset" width="
-        300px" width="200px" />
-      </a>
-      <div *ngIf="produit.onsale === 'No'" class="note no-stock">Out of stock</div>
-      <div *ngIf="produit.onsale === 'Yes'" class="note on-sale">On sale</div>
-      <div class="info">
-        <div class="title">{{produit.title}}</div>
-        <div *ngIf="produit.promo === 'No'" class="price">${{produit.price}}</div>
-        <div *ngIf="produit.promo === 'Yes'" class="price sale">${{produit.newprice}}</div>
-        <div *ngIf="produit.promo === 'Yes'" class="price old">${{produit.price}}</div>
+  <h2>Best selling</h2>
+  <owl-carousel-o [options]="owlOptions">
+    <ng-template carouselSlide *ngFor="let produit of bestsell">
+      <div class="product slider" >
+        <a class="img-wrapper" routerLink='produit'>
+          <img src="{{produit.image}}" alt="headset" width="
+          300px" width="200px" />
+        </a>
+        <div *ngIf="produit.onsale === 'No'" class="note no-stock">Out of stock</div>
+        <div *ngIf="produit.onsale === 'Yes'" class="note on-sale">On sale</div>
+        <div class="info">
+          <div class="title">{{produit.title}}</div>
+          <div *ngIf="produit.promo === 'No'" class="price">${{produit.price}}</div>
+          <div *ngIf="produit.promo === 'Yes'" class="price sale">${{produit.newprice}}</div>
+          <div *ngIf="produit.promo === 'Yes'" class="price old">${{produit.price}}</div>
+        </div>
+        
+        <div class="actions-wrapper">
+          <a href="#" class="add-btn fav">fav</a>
+          <a href="#" class="add-btn cart">Cart</a>
+        </div>
       </div>
-      
-      <div class="actions-wrapper">
-        <a href="#" class="add-btn fav">fav</a>
-        <a href="#" class="add-btn cart">Cart</a>
+    </ng-template>
+  </owl-carousel-o>
+  <h2>Our Promos</h2>
+  <owl-carousel-o [options]="owlOptions">
+    <ng-template carouselSlide *ngFor="let produit of ourpromos">
+      <div class="product  slider">
+        <a class="img-wrapper" routerLink='produit'>
+          <img src="{{produit.image}}" alt="headset" width="
+          300px" width="200px" />
+        </a>
+        <div *ngIf="produit.onsale === 'No'" class="note no-stock">Out of stock</div>
+        <div *ngIf="produit.onsale === 'Yes'" class="note on-sale">On sale</div>
+        <div class="info">
+          <div class="title">{{produit.title}}</div>
+          <div *ngIf="produit.promo === 'No'" class="price">${{produit.price}}</div>
+          <div *ngIf="produit.promo === 'Yes'" class="price sale">${{produit.newprice}}</div>
+          <div *ngIf="produit.promo === 'Yes'" class="price old">${{produit.price}}</div>
+        </div>
+        
+        <div class="actions-wrapper">
+          <a href="#" class="add-btn fav">fav</a>
+          <a href="#" class="add-btn cart">Cart</a>
+        </div>
       </div>
-    </div>
-</div>
-<h2>Our Promos</h2>
-<div class="paginating">
-    <div class="product" *ngFor="let produit of bestsell">
-      <a class="img-wrapper" routerLink='produit'>
-        <img src="{{produit.image}}" alt="headset" width="
-        300px" width="200px" />
-      </a>
-      <div *ngIf="produit.onsale === 'No'" class="note no-stock">Out of stock</div>
-      <div *ngIf="produit.onsale === 'Yes'" class="note on-sale">On sale</div>
-      <div class="info">
-        <div class="title">{{produit.title}}</div>
-        <div *ngIf="produit.promo === 'No'" class="price">${{produit.price}}</div>
-        <div *ngIf="produit.promo === 'Yes'" class="price sale">${{produit.newprice}}</div>
-        <div *ngIf="produit.promo === 'Yes'" class="price old">${{produit.price}}</div>
-      </div>
-      
-      <div class="actions-wrapper">
-        <a href="#" class="add-btn fav">fav</a>
-        <a href="#" class="add-btn cart">Cart</a>
-      </div>
-    </div>
-</div>
-
+    </ng-template>
+  </owl-carousel-o>
 

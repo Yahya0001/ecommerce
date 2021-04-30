@@ -1,0 +1,91 @@
+<div class="container">
+    <div class="card" *ngFor="let profil of Profile">
+      <div
+        class="card-header"
+        style="background: linear-gradient(14deg, #4507a2 0%, black 75%)"
+      >
+        <h1 style="color: #ffffff; text-align: center">Mon compte</h1>
+      </div>
+      <div class="card-body">
+        <div class="card">
+          <div class="card-header info">
+            <h2 style="text-align: center">Informations personnelles</h2>
+            <button class="btnEdit">
+              <span
+                routerLink="../update_profile"
+                class="material-icons"
+                style="color: #4507a2"
+              >
+                edit
+              </span>
+            </button>
+          </div>
+          <div class="card-body">
+            <div div class="row information">
+              <div class="col-xs-12 col-md-6">
+                <div class="edit">
+                  <p>{{ profil.prenom }}</p>
+                </div>
+                <hr />
+                <div class="edit">
+                  <p>{{ profil.nom }}</p>
+                </div>
+                <hr />
+                <div class="edit">
+                  <p>{{ profil.adresse }}</p>
+                </div>
+                <hr />
+                <div class="edit">
+                  <p>{{ profil.ville }}</p>
+                </div>
+                <hr />
+                <div class="edit">
+                  <p>{{ profil.code_postal }}</p>
+                </div>
+                <hr />
+                <div class="edit">
+                  <p>{{ profil.mail }}</p>
+                </div>
+                <hr />
+                <!-- <div class="edit">
+                  <p>{{ profil.password }}</p>
+                </div> -->
+              </div>
+              <div class="card col-xs-12 col-md-4">
+                <div class="card-header pdp">
+                  <h3 style="color: #ffffff; text-align: center">
+                    Bienvenue {{ profil.prenom }}
+                  </h3>
+                </div>
+                <div class="card-body">
+                  <div class="avatar">
+                    <img
+                      src="../../assets/images/seconnecter.jpg"
+                      alt="Avatar"
+                      style="width: 200px; height: 200px"
+                      class="avatar1"
+                    />
+                  </div>
+                  <div
+                    class="btnpdp row"
+                    style="display: flex; justify-content: flex-end"
+                  >
+                    <div class="col-xl-6 col-xs-6 col-lg-6 col-sm-6 col-md-6">
+                      <button class="btnPDP" (click)="openDialog(profil.id)">
+                        Panier
+                      </button>
+                    </div>
+                    <div class="col-xl-6 col-xs-6 col-lg-6 col-sm-6 col-md-6">
+                      <button class="btnPDP" routerLink="#">
+                        Historique des commandes
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

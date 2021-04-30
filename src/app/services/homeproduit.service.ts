@@ -24,6 +24,11 @@ export class HomeproduitService {
       .pipe(catchError(this.ProcessHTTPMsgService.handleError));
   }
 
+  getOurPromo(): Observable<Array<Homeproduit>> {
+    return this.http.get<Array<Homeproduit>>(baseURL + 'ourpromos')
+      .pipe(catchError(this.ProcessHTTPMsgService.handleError));
+  }
+
   deleteProduct(id: string): Observable<void> {
     return this.http
       .delete<void>(baseURL + 'homeproduit/' + id)

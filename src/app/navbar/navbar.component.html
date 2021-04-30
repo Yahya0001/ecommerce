@@ -76,6 +76,7 @@
                     </ul>
                     <ul [hidden]="Connected">
                         <li><button (click)="LogIn()">LOG OUT</button></li>
+                        <li><a routerLink="profile">Profile</a></li>
                     </ul>
                 </i>
                 <p [hidden]="Connected">Hello, {{use.prenom}}</p>
@@ -113,18 +114,18 @@
             <ul>
                 <li>Informatique
                     <ul>
-                        <li><a href="#">Ordinateur Portable</a></li>
-                        <li><a href="#">Ordinateur de Bureau</a></li>
-                        <li><a href="#">Accessoires et Périphériques</a></li>
+                        <li><a routerLink="category">Ordinateur Portable</a></li>
+                        <li><a routerLink="category">Ordinateur de Bureau</a></li>
+                        <li><a routerLink="category">Accessoires et Périphériques</a></li>
                     </ul>
                 </li>
                 <li>Téléphonie &amp; Tablette
                     <ul>
-                        <li><a href="#">Téléphone Portable</a></li>
-                        <li><a href="#">Smartphone</a></li>
-                        <li><a href="#">Téléphone Fixe</a></li>
-                        <li><a href="#">Tablette tactile</a></li>
-                        <li><a href="#">Accessoires Téléphones</a></li>
+                        <li><a routerLink="category">Téléphone Portable</a></li>
+                        <li><a routerLink="category">Smartphone</a></li>
+                        <li><a routerLink="category">Téléphone Fixe</a></li>
+                        <li><a routerLink="category">Tablette tactile</a></li>
+                        <li><a routerLink="category">Accessoires Téléphones</a></li>
                     </ul>
                 </li>
                 <li>TV-Son-Photos
@@ -172,7 +173,7 @@
                         <li><a href="#">Photocopieurs</a></li>
                         <li><a href="#">Consommables</a></li>
                         <li><a href="#">Fax</a></li>
-                        <li><a href="#">Scanners</a></li>
+                        <li><a routerLink="historique-component">Scanners</a></li>
                     </ul>
                 </li>
             </ul>

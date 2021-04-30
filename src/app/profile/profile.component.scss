@@ -1,0 +1,62 @@
+.card {
+    justify-content: center;
+    padding: 0%;
+    border-radius: 2%;
+  }
+  .title {
+    text-align: center;
+  }
+  .info {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(204, 201, 207);
+    color: #4a1480;
+  }
+  .pdp {
+    background-color: #4a1480;
+    color: rgb(220, 219, 221);
+    text-align: center;
+    margin: 0%;
+  }
+  .information {
+    display: flex;
+    justify-content: space-around;
+  }
+  .edit {
+    display: flex;
+    justify-content: space-between;
+    margin: 12px;
+  }
+  .btnEdit {
+    border: 0;
+    background-color: rgb(204, 201, 207);
+  }
+  .btnpdp {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+  }
+  .btnPDP {
+    color: #eeeeee;
+    font: bold;
+    text-align: center;
+    background-color: rgb(40, 70, 99);
+    color: white;
+    padding: 8px 8px;
+    margin: 12px 8px;
+    border-radius: 8%;
+    font-size: 16px;
+  }
+  .commande {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(204, 201, 207);
+    color: #4a1480;
+  }
+  .avatar1 {
+    width: 50%;
+    border-radius: 50%;
+  }
+  .avatar {
+    text-align: center;
+  }

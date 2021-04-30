@@ -1,0 +1,18 @@
+<div class="Box">
+    <h1 style="padding-top: 70px;">HISTORIQUE DE VOS COMMANDES</h1>
+    <h2 style="height: 5px; width: 380px;  ; background-image: linear-gradient(to right,black,purple );"></h2>
+    <table class= "table table-bordered" style="margin-top:20px; ">
+        <tr>
+            <th >Date</th>
+            <th >Product</th>
+            <th (click)="sort('price')"> Price&nbsp;<i class="fa fa-icon"></i> </th>
+            <th  (click)="sort('quantite')">Quantite&nbsp;<i class="fa fa-icon"></i> </th>
+        </tr>
+        <tr *ngFor="let U of user | orderBy : key : reverse ">
+            <td>{{U.date}}</td>
+            <td>{{U.title}}</td>
+            <td>{{U.price}}</td>
+            <td>{{U.quantite}}</td>
+        </tr>
+    </table>
+</div>

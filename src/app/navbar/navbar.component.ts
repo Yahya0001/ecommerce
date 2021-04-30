@@ -12,7 +12,7 @@ export class NavbarComponent implements OnInit {
 /*  private toggleButton: any;
   private sidebarVisible: boolean;*/
   NbrPanierItems : boolean = false ;
-  Connected : boolean = true ;
+  Connected : boolean = false ;
   panier : Number = 2 ;
   user : Array<User> ;
 

@@ -1,0 +1,87 @@
+<main>
+    <div class="filterbox">
+        <h3>Filtrer Par</h3>
+        <!--div>
+            <input type="text" [(ngModel)]="title" name="title" (ngModelChange)="Search()" placeholder="hello">
+            <div *ngFor = "let produit of Hproduit" >
+              <p>
+                {{produit.title}}
+              </p>
+            </div>
+        </div-->
+        <div class="triebox">
+            <h4>Prix</h4>
+            <ngx-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ngx-slider>
+            <div class="slidevaluebox">
+                <div class="slidevalue">
+                    <p><span>{{minValue}}</span> DT</p>
+                </div>
+                <div class="slidevalue">
+                    <p><span>{{maxValue}}</span> DT</p>
+                </div>
+            </div>
+        </div>
+        <h4>Marques</h4>
+        <div class="triebox">
+            <div *ngFor="let marque of marques">
+                <input type="checkbox" name="marque" [value]="marque" (change)="search1($event , marque)">
+                {{marque}}
+            </div>
+        </div>
+    </div>
+ 
+    <div class="productbox">
+        <div class="selectbox">
+            <div class="modebtn">
+                <button (click)="changeListMode()" [class.changestyle]="!listMode"><i class="fas fa-th-list fa-lg mr-1"></i></button>
+                <button (click)="changeLargeMode()" [class.changestyle]="listMode"><i class="fas fa-th-large fa-lg"></i></button>
+            </div>
+            <p style="font-size: 16px;margin-bottom: 0px;">il y a {{nbrProduit}} produits</p>
+            <!--pagination-controls [hidden]="!listMode" (pageChange)="p = $event"></pagination-controls>
+            <pagination-controls [hidden]="listMode" (pageChange)="pl = $event"></pagination-controls-->
+            <div ngbDropdown class="d-inline-block sortbutton">
+                <button class="btn btn-outline-primary sortbtn" id="dropdownBasic1" ngbDropdownToggle>Trier par : {{trie}}</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <button ngbDropdownItem (click)="sortCROI('price')">Prix croissant</button>
+                    <button ngbDropdownItem (click)="sortDESC('price')">Prix décroissant</button>
+                    <button ngbDropdownItem (click)="sortA2Z('title')">Nom, A à Z</button>
+                    <button ngbDropdownItem (click)="sortZ2A('title')">Nom, Z à A</button>
+                </div>
+            </div>
+        </div>
+        <table class="table" [hidden]="!listMode">
+            <tbody>
+                <tr *ngFor="let produit of Hproduit | orderBy: key: reverse | orderBy: namekey: rev | paginate: {itemsPerPage:3 , currentPage:p};">
+                    <td class="produictImg">
+                        <div class="productimgbox">
+                            <img src="{{produit.image}}">
+                        </div>
+                    </td>
+                    <td class="produictDesc">
+                        <h2>{{produit.title}}</h2>
+                        <p>{{produit.description}}</p>
+                    </td>
+                    <td class="produictPrix">
+                        <p class="pricetag"><span>{{produit.price}}</span> DT</p>
+                        <button type="button" class="btn btn-primary btn-md mr-1 mb-2 waves-effect waves-light"><i class="fas fa-shopping-cart pr-2"></i>Add to cart</button>
+                        <button type="button" class="btn btn-light btn-md mr-1 mb-2 waves-effect waves-light"><i class="fas fa-heart"></i>Favorie</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="listing" [hidden]="listMode">
+            <div class="product" *ngFor="let produit of Hproduit | orderBy: key: reverse | orderBy: namekey: rev | paginate: {itemsPerPage:8 , currentPage:pl};">
+                <div class="productimg">
+                    <img src="{{produit.image}}" alt="newproduct" />
+                </div>
+                <h4>{{produit.title}}</h4>
+                <div class="btnbox">
+                  <button type="button" class="btn btn-primary btn-md mr-1 mb-2 waves-effect waves-light"><i class="fas fa-shopping-cart pr-2"></i>Add to cart</button>
+                  <button type="button" class="btn btn-light btn-md mr-1 mb-2 waves-effect waves-light"><i class="fas fa-heart"></i>Favorie</button>
+                </div>
+            </div>
+        </div>
+        <pagination-controls [hidden]="listMode" (pageChange)="pl = $event"></pagination-controls>
+        <pagination-controls [hidden]="!listMode" (pageChange)="p = $event"></pagination-controls>
+    </div>
+</main>

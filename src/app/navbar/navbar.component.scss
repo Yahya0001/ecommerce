@@ -22,7 +22,7 @@ nav{
                     width: 200px;
                     border-radius: 12px 0 0 12px;
                     border: none;
-                    margin: 8px -15px 0 0;
+                    margin: 15px -15px 0 0;
                     height: 35px;
                     .listtitle{
                         background-color:#646363 ;
@@ -38,7 +38,7 @@ nav{
                 }
                 .search{
                     width: 320px;
-                    height: 35px;
+                    height: 35.5px;
                     border-radius: 0 ;
                     border: none;
                     border-right: 1px solid #a6a6a6;
@@ -90,7 +90,6 @@ nav{
                             right: 80px;
                             z-index: 50;
                             li{
-                            //margin: 0;
                                 padding: 17px;
                                 width: 250px;
                                 button{
@@ -167,6 +166,9 @@ nav{
         } .profile {
             display: flex;
         }
+        .navbar-form{
+            margin: 15px 0 0;
+        }
     }
 }
 @media only screen and (max-width: 770px)and (min-width: 320px){
@@ -185,12 +187,17 @@ nav{
                     padding: 6px;
                 }
             }
+            div{
+                h1 {
+                    margin: 11px;
+                }
+            }
         }
         .secnav{
             width: 100%;
             div{
                 display: flex;
-                margin : 0;
+                margin: -2px 0 0 8px;
                 padding-right: 10px;
                 form{
                     display: flex;
@@ -219,8 +226,8 @@ nav{
                             font-family: bold ;
                         }
                         .far{
-                            color: white;
-                            margin:3px;
+                            color:black;
+                            margin:7px;
                             font-size : 40px; 
                             ul{
                                 display: none;

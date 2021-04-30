@@ -110,9 +110,9 @@
                 </tbody>
               </table>
             </div>
-            <button type="button" class="btn btn-primary btn-md mr-1 mb-2 waves-effect waves-light">Buy now</button>
-            <button type="button" class="btn btn-light btn-md mr-1 mb-2 waves-effect waves-light"><i class="fas fa-shopping-cart pr-2"></i>Add to
+            <button type="button" class="btn btn-primary btn-md mr-1 mb-2 waves-effect waves-light"><i class="fas fa-shopping-cart pr-2"></i>Add to
               cart</button>
+            <button type="button" class="btn btn-light btn-md mr-1 mb-2 waves-effect waves-light"><i class="fas fa-heart"></i>Favorie</button>
           </div>
         </div>
 
@@ -198,33 +198,11 @@
             <h5 class="mt-4">Add a review</h5>
             <p>Your email address will not be published.</p>
             <div class="my-3">
-              <ul class="rating mb-0">
-                <li>
-                  <a href="#!">
-                    <i class="fas fa-star fa-sm text-primary"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#!">
-                    <i class="fas fa-star fa-sm text-primary"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#!">
-                    <i class="fas fa-star fa-sm text-primary"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#!">
-                    <i class="fas fa-star fa-sm text-primary"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#!">
-                    <i class="far fa-star fa-sm text-primary"></i>
-                  </a>
-                </li>
-              </ul>
+              <ngb-rating [(rate)]="currentRate" [max]=5>
+                <ng-template let-fill="fill" let-index="index">
+                  <span class="star" [class.filled]="fill === 100">&#9733;</span>
+                </ng-template>
+              </ngb-rating>
             </div>
             <div>
               <!-- Your review -->
@@ -252,27 +230,29 @@
       <div>
           <h4>Related products</h4>
           <div>
-            <div class="paginating">
-              <div class="product" *ngFor="let produit of bestsell">
-                <a class="img-wrapper" routerLink='produit'>
-                  <img src="{{produit.image}}" alt="headset" width="
-                  300px" width="200px" />
-                </a>
-                <div *ngIf="produit.onsale === 'No'" class="note no-stock">Out of stock</div>
-                <div *ngIf="produit.onsale === 'Yes'" class="note on-sale">On sale</div>
-                <div class="info">
-                  <div class="title">{{produit.title}}</div>
-                  <div *ngIf="produit.promo === 'No'" class="price">${{produit.price}}</div>
-                  <div *ngIf="produit.promo === 'Yes'" class="price sale">${{produit.newprice}}</div>
-                  <div *ngIf="produit.promo === 'Yes'" class="price old">${{produit.price}}</div>
+            <owl-carousel-o [options]="owlOptions">
+              <ng-template carouselSlide *ngFor="let produit of bestsell">
+                <div class="product  slider">
+                  <a class="img-wrapper" routerLink='produit'>
+                    <img src="{{produit.image}}" alt="headset" width="
+                    300px" width="200px" />
+                  </a>
+                  <div *ngIf="produit.onsale === 'No'" class="note no-stock">Out of stock</div>
+                  <div *ngIf="produit.onsale === 'Yes'" class="note on-sale">On sale</div>
+                  <div class="info">
+                    <div class="title">{{produit.title}}</div>
+                    <div *ngIf="produit.promo === 'No'" class="price">${{produit.price}}</div>
+                    <div *ngIf="produit.promo === 'Yes'" class="price sale">${{produit.newprice}}</div>
+                    <div *ngIf="produit.promo === 'Yes'" class="price old">${{produit.price}}</div>
+                  </div>
+                  
+                  <div class="actions-wrapper">
+                    <a href="#" class="add-btn fav">fav</a>
+                    <a href="#" class="add-btn cart">Cart</a>
+                  </div>
                 </div>
-                
-                <div class="actions-wrapper">
-                  <a href="#" class="add-btn fav">fav</a>
-                  <a href="#" class="add-btn cart">Cart</a>
-                </div>
-              </div>
-          </div>
+              </ng-template>
+            </owl-carousel-o>
           </div>
       </div>
     </div>
